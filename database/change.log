@@ -1,0 +1,48 @@
+drop database CourseManager
+create database CourseManager
+Use CourseManager
+CREATE TABLE StudentInCourse (
+  Id int NOT NULL IDENTITY(1,1),
+  StudentId int NOT NULL,
+  CourseId int NOT NULL,
+  Grade int,
+  PRIMARY KEY (StudentId, CourseId)
+)
+go
+
+CREATE TABLE Student (
+  Id int NOT NULL Primary key  IDENTITY(1,1),
+  [Name] NVARCHAR (150) not null,
+  Gender NVARCHAR (150) not null,
+   Email NVARCHAR (255) NOT NULL,
+Phone Char(11) UNIQUE CHECK(Phone LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' OR Phone LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'),
+  MajorId int  not null,
+
+)
+go
+CREATE TABLE Major (
+  id integer NOT NULL Primary key  IDENTITY(1,1),
+  [Name] NVARCHAR(255) NOT NULL,
+  [Description] NVARCHAR (255) NOT NULL,
+);
+CREATE TABLE [Subject] (
+  id integer NOT NULL Prsimary key  IDENTITY(1,1),
+  [Name] NVARCHAR(255) NOT NULL,
+  [Description] NVARCHAR (255) NOT NULL,
+  prerequisites NVARCHAR (255) NOT NULL,
+);
+CREATE TABLE Semester (
+  id integer NOT NULL Primary key  IDENTITY(1,1),
+  [Name] NVARCHAR (255) NOT NULL,
+  StartDate DATE not null,
+  EndDate DATE not null,
+    [Status]  NVARCHAR (255) NOT NULL;
+
+);
+CREATE TABLE Course (
+  id integer NOT NULL Primary key  IDENTITY(1,1),
+  [Name] NVARCHAR (255) NOT NULL,
+  [Description] NVARCHAR (255) NOT NULL,
+
+
+);
